@@ -2,6 +2,36 @@
 # Date Started 2017-04-26
 # Purpose: Peer reviewed assignment for Getting and Cleaning Data upon Coursera.
 
+featureLineSplit <- function (line) {
+  unlist(strsplit(line, " "))
+}
+
+featureMaxColumns <- function (lines) {
+  max(sapply(lines, function(line) { length(featureLineSplit(line)) }))
+}
+
+featuresRead <- function (trainingFileName, testingFileName) {
+  lines <- readLines(trainingFileName)
+  lines <- append(lines, readLines(testingFileName))
+  # length(featureLineSplit(line[1]))
+  m <- matrix(ncol = featureMaxColumns(lines), nrow = length(lines))
+  i <- 0
+  for(line in lines) {
+    i <- i + 1
+    elements <- featureLineSplit(line)
+    j <- 0
+    for(element in elements) {
+      j <- j + 1
+      #print (i)
+      #print (j)
+      m[i,j] <- as.numeric(element)
+    }
+  }
+  
+  m
+    
+}
+
 
 zipDataFileName <- "datafile.zip"
 if (!file.exists(zipDataFileName)) {
@@ -21,8 +51,7 @@ features <- read.csv(featureDescriptionFileName, header = FALSE, sep = " ")
 activities <- read.csv(activityLabelFileName, header = FALSE, sep = " ")
 numericTrainActivities <- read.csv(trainYFileName, header = FALSE, sep = " ")
 numericTestActivities <- read.csv(testYFileName, header = FALSE, sep = " ")
-trainingScalars <- read.csv(trainXFileName, header = FALSE, sep = " ")
-testingScalars <- read.csv(testXFileName, header = FALSE, sep = " ")
+scalars <- featuresRead(trainXFileName, testXFileName)
 
 colnames(features) <- c("IndexBy1", "Label")
 colnames(activities) <- c("IndexBy1", "Label")
@@ -43,20 +72,12 @@ features <- lapply(features, function(x) { gsub("\\)", "_RP_", x) })
 stringTrainActivities <- lapply(numericTrainActivities, function(x) { activities[x, "Label"] })
 stringTestActivities <- lapply(numericTestActivities, function(x) { activities[x, "Label"] })
 
-tidyWhole <- data.frame(row.names = features)
-
-
-
+tidyWhile <- data.frame()
 
 # Fully expect that this is slow, but dealing with such little data that slowness should not be too much of a problem: 
 stringActivities <- append(as.vector(stringTrainActivities$V1), as.vector(stringTestActivities$V1))
 
 
-trainingScalars$V663 <- NA
-trainingScalars$V664 <- NA
-trainingScalars$V665 <- NA
-trainingScalars$V666 <- NA
-trainingScalars$V667 <- NA
 
 tidyWhole <- rbind(trainingScalars, testingScalars)
 colnames(tidyWhole) <- features
@@ -66,13 +87,3 @@ tidyWhole$Activity <- stringActivities
 
 
 
-#featureConn <- file(featureDescriptionFileName, open = "r")
-#featureConnLines <- readLines(featureConn)
-#for (line in featureConnLines) {
-#
-#}
-#close(featureConn)
-
-function featureRead(filename) {
-  
-}
