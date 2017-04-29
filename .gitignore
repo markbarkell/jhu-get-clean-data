@@ -1,0 +1,16 @@
+
+# Do not commit to the source code control system
+# the directory which is the unzipped data.  Require that
+# if someone does not already have the data.  That he or she
+# downloads that data for him or herself.
+UCI HAR Dataset/
+
+# Do not commit to the source code control system
+# the zipped data.  Require that
+# if someone does not already have the data.  That he or she
+# downloads that data for him or herself.
+datafile.zip
+
+# Don't put into the source code control system the history of the R commands
+# typed.  Someone might not like what they find in my musings.
+.Rhistory
