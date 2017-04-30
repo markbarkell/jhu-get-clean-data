@@ -40,50 +40,30 @@ if (!file.exists(zipDataFileName)) {
 
 unzip(zipDataFileName)
 
-featureDescriptionFileName <- "UCI HAR Dataset/features.txt"
-activityLabelFileName <- "UCI HAR Dataset/activity_labels.txt"
-trainXFileName <- "UCI HAR Dataset/train/X_train.txt"
-testXFileName <- "UCI HAR Dataset/test/X_test.txt"
-trainYFileName <- "UCI HAR Dataset/train/y_train.txt"
-testYFileName <- "UCI HAR Dataset/test/y_test.txt"
-
-features <- read.csv(featureDescriptionFileName, header = FALSE, sep = " ")
-activities <- read.csv(activityLabelFileName, header = FALSE, sep = " ")
-numericTrainActivities <- read.csv(trainYFileName, header = FALSE, sep = " ")
-numericTestActivities <- read.csv(testYFileName, header = FALSE, sep = " ")
-scalars <- featuresRead(trainXFileName, testXFileName)
-
-colnames(features) <- c("IndexBy1", "Label")
-colnames(activities) <- c("IndexBy1", "Label")
-
-features <- paste0(features$IndexBy1, features$Label)
-
-#features <- lapply(features, function(x) paste0(x$IndexBy1, x$Label))
-
-#features <- lapply(features, function(x) { sub('^\\d+\\s+(.+)$', '\\1', x) })
-features <- lapply(features, function(x) { gsub("\\s+", "", x) })
-features <- lapply(features, function(x) { gsub("\\(\\)", "_OC_", x) })
-features <- lapply(features, function(x) { gsub('\\-(\\d+)', "_NEGATIVE_\\1", x) })
-features <- lapply(features, function(x) { gsub("\\-", "_DASH_", x) })
-features <- lapply(features, function(x) { gsub(",", "_COMMA_", x) })
-features <- lapply(features, function(x) { gsub("\\(", "_LP_", x) })
-features <- lapply(features, function(x) { gsub("\\)", "_RP_", x) })
-
-stringTrainActivities <- lapply(numericTrainActivities, function(x) { activities[x, "Label"] })
-stringTestActivities <- lapply(numericTestActivities, function(x) { activities[x, "Label"] })
-
-tidyWhile <- data.frame()
-
-# Fully expect that this is slow, but dealing with such little data that slowness should not be too much of a problem: 
-stringActivities <- append(as.vector(stringTrainActivities$V1), as.vector(stringTestActivities$V1))
+trainbodyAccXFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_acc_x_train.txt'
+trainbodyAccYFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_acc_y_train.txt'
+trainbodyAccZFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_acc_z_train.txt'
+trainbodyGyroXFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt'
+trainbodyGyroYFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt'
+trainbodyGyroZFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt'
+trainbodyTotalAccXFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt'
+trainbodyTotalAccYFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt'
+trainbodyTotalAccZFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt'
+trainsubjectFileName <- 'UCI HAR Dataset/train/subject_train.txt'
+trainactivityFileName <- 'UCI HAR Dataset/train/y_train.txt'
 
 
+testbodyAccXFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_acc_x_test.txt'
+testbodyAccYFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_acc_y_test.txt'
+testbodyAccZFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_acc_z_test.txt'
+testbodyGryoXFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_x_test.txt'
+testbodyGryoYFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_y_test.txt'
+testbodyGryoZFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_z_test.txt'
+testtotalAccXFileName <- 'UCI HAR Dataset/test/Inertial Signals/total_acc_x_test.txt'
+testtotalAccYFileName <- 'UCI HAR Dataset/test/Inertial Signals/total_acc_y_test.txt'
+testtotalAccZFileName <- 'UCI HAR Dataset/test/Inertial Signals/total_acc_z_test.txt'
 
-tidyWhole <- rbind(trainingScalars, testingScalars)
-colnames(tidyWhole) <- features
-
-tidyWhole$Activity <- stringActivities
-
-
+testsubjectFileName <- 'UCI HAR Dataset/test/subject_test.txt'
+testactivityFileName <- 'UCI HAR Dataset/test/y_test.txt'
 
 
