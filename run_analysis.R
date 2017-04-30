@@ -162,5 +162,25 @@ df <- data.frame(Activity = stringActivities, Subject = subjectIdentifiers,
                  BodyTotalAccZMean = cMean(dtAccZ), BodyTotalAccZSd = cSd(dtAccZ)
                  )
 
+write.csv(df, "meansdperrow.csv")
 
+# It may be possible that this install needs to be done
+# on some new instances of R.  It is unlikely that an
+# R instance used alot will be missing plyr.
+# install.packages("plyr")
 
+library(plyr)
+
+df2 <- ddply(df, c("Activity", "Subject"),summarise, 
+             BodyAccXMean = mean(BodyAccXMean),
+             BodyAccYMean = mean(BodyAccYMean),
+             BodyAccZMean = mean(BodyAccZMean),
+             BodyGyroXMean = mean(BodyGyroXMean),
+             BodyGyroYMean = mean(BodyGyroYMean),
+             BodyGyroZMean = mean(BodyGyroZMean),
+             BodyTotalAccXMean = mean(BodyTotalAccXMean),
+             BodyTotalAccYMean = mean(BodyTotalAccYMean),
+             BodyTotalAccZMean = mean(BodyTotalAccZMean)
+             )
+
+write.csv(df2, "meanperactivitysubject.csv")
