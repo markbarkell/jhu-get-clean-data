@@ -5,7 +5,7 @@ The text of the assignment may be found at:
 
 https://www.coursera.org/learn/data-cleaning/peer/FIZtT/getting-and-cleaning-data-course-project
 
-## Methodoligy
+## Methodilogy
 
 Implmented a run_analysis.R file which downloads a data set of sensor data from a smart phone.  The data set had raw data and non-raw data within it.   Reading the descriptions in the data set it seems that the X_train.txt and the X_test.txt seem to be derived data sets.  So, these two files were left unused.
 
