@@ -14,3 +14,6 @@ datafile.zip
 # Don't put into the source code control system the history of the R commands
 # typed.  Someone might not like what they find in my musings.
 .Rhistory
+
+# Just not to store the foo.txt in git -- already storing the data as a CSV.
+foo.txt

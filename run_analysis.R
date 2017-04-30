@@ -184,3 +184,4 @@ df2 <- ddply(df, c("Activity", "Subject"),summarise,
              )
 
 write.csv(df2, "meanperactivitysubject.csv")
+write.table(df2, row.names = FALSE, "foo.txt")
