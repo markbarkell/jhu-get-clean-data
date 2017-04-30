@@ -162,7 +162,7 @@ df <- data.frame(Activity = stringActivities, Subject = subjectIdentifiers,
                  BodyTotalAccZMean = cMean(dtAccZ), BodyTotalAccZSd = cSd(dtAccZ)
                  )
 
-write.csv(df, "meansdperrow.csv")
+write.csv(df, "meansperrow.csv")
 
 # It may be possible that this install needs to be done
 # on some new instances of R.  It is unlikely that an
