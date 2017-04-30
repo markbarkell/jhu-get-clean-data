@@ -44,8 +44,6 @@ featuresRead <- function (trainingFileName, testingFileName) {
     j <- 0
     for(element in elements) {
       j <- j + 1
-      #print (i)
-      #print (j)
       m[i,j] <- as.numeric(element)
     }
   }
@@ -65,12 +63,12 @@ unzip(zipDataFileName)
 trainbodyAccXFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_acc_x_train.txt'
 trainbodyAccYFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_acc_y_train.txt'
 trainbodyAccZFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_acc_z_train.txt'
-trainbodyGyroXFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt'
-trainbodyGyroYFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt'
-trainbodyGyroZFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt'
-trainbodyTotalAccXFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt'
-trainbodyTotalAccYFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt'
-trainbodyTotalAccZFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt'
+traingyroXFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt'
+traingyroYFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt'
+traingyroZFileName <- 'UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt'
+traintotalAccXFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt'
+traintotalAccYFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt'
+traintotalAccZFileName <- 'UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt'
 trainsubjectFileName <- 'UCI HAR Dataset/train/subject_train.txt'
 trainactivityFileName <- 'UCI HAR Dataset/train/y_train.txt'
 
@@ -78,9 +76,9 @@ trainactivityFileName <- 'UCI HAR Dataset/train/y_train.txt'
 testbodyAccXFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_acc_x_test.txt'
 testbodyAccYFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_acc_y_test.txt'
 testbodyAccZFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_acc_z_test.txt'
-testbodyGryoXFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_x_test.txt'
-testbodyGryoYFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_y_test.txt'
-testbodyGryoZFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_z_test.txt'
+testgyroXFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_x_test.txt'
+testgyroYFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_y_test.txt'
+testgyroZFileName <- 'UCI HAR Dataset/test/Inertial Signals/body_gyro_z_test.txt'
 testtotalAccXFileName <- 'UCI HAR Dataset/test/Inertial Signals/total_acc_x_test.txt'
 testtotalAccYFileName <- 'UCI HAR Dataset/test/Inertial Signals/total_acc_y_test.txt'
 testtotalAccZFileName <- 'UCI HAR Dataset/test/Inertial Signals/total_acc_z_test.txt'
@@ -109,6 +107,7 @@ subjectIdentifiers <- append(as.vector(trainSubjectIdentifiers$V1), as.vector(te
 
 
 
+# Body Acceleration X, Y, and Z.
 accX <- featuresRead(trainbodyAccXFileName, testbodyAccXFileName)
 
 dAccX <- meanSd(accX)
@@ -117,7 +116,51 @@ accY <- featuresRead(trainbodyAccYFileName, testbodyAccYFileName)
 
 dAccY <- meanSd(accY)
 
-df <- data.frame(Activity = stringActivities, Subjects = subjectIdentifiers,
+accZ <- featuresRead(trainbodyAccZFileName, testbodyAccZFileName)
+
+dAccZ <- meanSd(accZ)
+
+
+# Body Gryoscopic measurements X, Y, and Z
+gyroX <- featuresRead(traingyroXFileName, testgyroXFileName)
+
+dGryoX <- meanSd(gyroX)
+
+gyroY <- featuresRead(traingyroYFileName, testgyroYFileName)
+
+dGyroY <- meanSd(gyroY)
+
+gyroZ <- featuresRead(traingyroZFileName, testgyroZFileName)
+
+dGyroZ <- meanSd(gyroZ)
+
+
+# Total Acceleration X, Y, and Z.
+taccX <- featuresRead(traintotalAccXFileName, testtotalAccXFileName)
+
+dtAccX <- meanSd(taccX)
+
+taccY <- featuresRead(traintotalAccYFileName, testtotalAccYFileName)
+
+dtAccY <- meanSd(taccY)
+
+taccZ <- featuresRead(traintotalAccZFileName, testtotalAccZFileName)
+
+dtAccZ <- meanSd(taccZ)
+
+
+
+df <- data.frame(Activity = stringActivities, Subject = subjectIdentifiers,
                  BodyAccXMean = cMean(dAccX), BodyAccXSd = cSd(dAccX),
-                 BodyAccYMean = cMean(dAccY), BodyAccYSd = cSd(dAccY))
+                 BodyAccYMean = cMean(dAccY), BodyAccYSd = cSd(dAccY),
+                 BodyAccZMean = cMean(dAccZ), BodyAccZSd = cSd(dAccZ),
+                 BodyGyroXMean = cMean(dGryoX), BodayGyroXSd = cSd(dGryoX),
+                 BodyGyroYMean = cMean(dGyroY), BodayGyroYSd = cSd(dGyroY),
+                 BodyGyroZMean = cMean(dGyroZ), BodayGyroZSd = cSd(dGyroZ),
+                 BodyTotalAccXMean = cMean(dtAccX), BodyTotalAccXSd = cSd(dtAccX),
+                 BodyTotalAccYMean = cMean(dtAccY), BodyTotalAccYSd = cSd(dtAccY),
+                 BodyTotalAccZMean = cMean(dtAccZ), BodyTotalAccZSd = cSd(dtAccZ)
+                 )
+
+
 
