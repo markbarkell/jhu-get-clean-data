@@ -2,6 +2,28 @@
 # Date Started 2017-04-26
 # Purpose: Peer reviewed assignment for Getting and Cleaning Data upon Coursera.
 
+# Calculate mean and standard deviation.
+meanSd <- function(m) {
+ lapply(1:(dim(m)[1]), function(i) {
+   item <- list()
+   row <- m[i,!is.na(m[i,])]
+   item$MeanVal <- mean(row)
+   item$SdVal <- sd(row)
+   item
+ })   
+}
+
+# cMean -- convert mean.
+cMean <- function(listing) {
+  sapply(listing, function(x) { x$MeanVal })
+}
+
+# cSd -- convert standard deviation
+cSd <- function(listing) {
+  sapply(listing, function(x) { x$SdVal })
+}
+
+
 featureLineSplit <- function (line) {
   unlist(strsplit(line, " "))
 }
@@ -65,5 +87,37 @@ testtotalAccZFileName <- 'UCI HAR Dataset/test/Inertial Signals/total_acc_z_test
 
 testsubjectFileName <- 'UCI HAR Dataset/test/subject_test.txt'
 testactivityFileName <- 'UCI HAR Dataset/test/y_test.txt'
+activityLabelsFileName <- 'UCI HAR Dataset/activity_labels.txt'
 
+activities <- read.csv(activityLabelsFileName, header = FALSE, sep = " ")
+
+numericTrainActivities <- read.csv(trainactivityFileName, header = FALSE, sep = " ")
+numericTestActivities <- read.csv(testactivityFileName, header = FALSE, sep = " ")
+colnames(activities) <- c("IndexBy1", "Label")
+
+
+stringTrainActivities <- lapply(numericTrainActivities, function(x) { activities[x, "Label"] })
+stringTestActivities <- lapply(numericTestActivities, function(x) { activities[x, "Label"] })
+
+# Fully expect that this is slow, but dealing with such little data that slowness should not be too much of a problem: 
+stringActivities <- append(as.vector(stringTrainActivities$V1), as.vector(stringTestActivities$V1))
+
+trainSubjectIdentifiers <- read.csv(trainsubjectFileName, header = FALSE, sep = " ")
+testSubjectIdentifiers <- read.csv(testsubjectFileName, header = FALSE, sep = " ")
+
+subjectIdentifiers <- append(as.vector(trainSubjectIdentifiers$V1), as.vector(testSubjectIdentifiers$V1))
+
+
+
+accX <- featuresRead(trainbodyAccXFileName, testbodyAccXFileName)
+
+dAccX <- meanSd(accX)
+
+accY <- featuresRead(trainbodyAccYFileName, testbodyAccYFileName)
+
+dAccY <- meanSd(accY)
+
+df <- data.frame(Activity = stringActivities, Subjects = subjectIdentifiers,
+                 BodyAccXMean = cMean(dAccX), BodyAccXSd = cSd(dAccX),
+                 BodyAccYMean = cMean(dAccY), BodyAccYSd = cSd(dAccY))
 
