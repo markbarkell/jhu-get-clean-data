@@ -2,26 +2,10 @@
 # Date Started 2017-04-26
 # Purpose: Peer reviewed assignment for Getting and Cleaning Data upon Coursera.
 
-# Calculate mean and standard deviation.
-meanSd <- function(m) {
- lapply(1:(dim(m)[1]), function(i) {
-   item <- list()
-   row <- m[i,!is.na(m[i,])]
-   item$MeanVal <- mean(row)
-   item$SdVal <- sd(row)
-   item
- })   
-}
 
-# cMean -- convert mean.
-cMean <- function(listing) {
-  sapply(listing, function(x) { x$MeanVal })
-}
-
-# cSd -- convert standard deviation
-cSd <- function(listing) {
-  sapply(listing, function(x) { x$SdVal })
-}
+require(dplyr)
+#install.packages("dplyr")
+library(dplyr)
 
 
 # This function retrieves the cells that are in a line.
@@ -115,4 +99,43 @@ lenX <- (dim(x)[2])
 for(i in 2:lenX) {
   df[, inputFeatures$V2[i-1]] <- x[, i]
 }
+
+
+# Learnt about summarise_each from the following page:
+# http://stackoverflow.com/questions/21644848/summarizing-multiple-columns-with-dplyr
+
+# If I use something like dplyr::summarise_each(groupedBy, funs = mean)
+# or without the "funs = ", then, the following error message occurs:
+# Error: is.fun_list(calls) is not TRUE.
+# The following URL helped me figure out more about how to deal with this
+# http://stackoverflow.com/questions/25759891/dplyr-summarise-each-with-na-rm
+# However, using the dot, . , for saying which columns to do the stuff over doesn't seem to work
+# too well.
+# If one does that the error message is:
+# Error in summarise_impl(.data, dots) : cannot modify grouping variable.
+# Indeed, I attempted just to do -(1:2) as I had attempted with the data frame
+# and had worked, but the same error message occurred.
+# So, not even all these three lines have anything working -- except the group_by:
+#  groupedBy <- dplyr::group_by(df, paste0(df$Activity, "_", df$Subject) )
+#  meanedByGrouping <- dplyr::summarise_each(groupedBy, funs(mean( inputFeatures$V2 , na.rm = TRUE)))
+#  standardDevGrouping <- dplyr::summarise_each(groupedBy, funs(sd( -(1:2), na.rm = TRUE)))
+
+
+# How interesting, in trying to do this -- to eliminate out the grouping varialbes:
+# df %>% group_by(paste0(df$Activity, "_", df$Subject)) %>% summarise_each(funs(mean(na.rm = TRUE)), inputFeatures$V2)
+# I got the following Error Message:
+# Error: All select() inputs must resolve to integer column positions.
+# The following do not:
+#  *  inputFeatures$V2
+
+lengthInputFeatures <- length(inputFeatures$V2)
+endInputFeatures <- lengthInputFeatures + 3
+# While looking in The Internet, I found that my understanding of the group_by was a bit off.  I was attempting to
+# make a string to do the grouping, I had been thinking that the group_by(Activity, Subject) should be implemented
+# to do the right thing, but had not tried it until reading the following URL:
+# http://stackoverflow.com/questions/27592414/r-dplyr-summarize-each-error-cannot-modify-grouping-variable
+meanInfo <- df %>% group_by(Activity,Subject) %>% summarise_each(funs(mean(., na.rm=TRUE)))
+sdInfo <- df %>% group_by(Activity,Subject) %>% summarise_each(funs(sd(., na.rm=TRUE)))
+
+
 
