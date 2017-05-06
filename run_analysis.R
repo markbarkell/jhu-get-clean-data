@@ -137,5 +137,10 @@ endInputFeatures <- lengthInputFeatures + 3
 meanInfo <- df %>% group_by(Activity,Subject) %>% summarise_each(funs(mean(., na.rm=TRUE)))
 sdInfo <- df %>% group_by(Activity,Subject) %>% summarise_each(funs(sd(., na.rm=TRUE)))
 
+result <- data.frame(Activity = meanInfo$Activity, Subject = meanInfo$Subject)
 
+for(i in colnames(meanInfo)[-(1:2)]) {
+  result[, paste("Mean By The Grouping Of Both Activity and Subject", i)] <- meanInfo[, i]
+  result[, paste("Standard Deviation By the Grouping Of Both Activity and Subject", i)] <- sdInfo[, i]
+}
 
