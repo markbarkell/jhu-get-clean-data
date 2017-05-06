@@ -142,11 +142,12 @@ preambleMean <- "Mean_By_The_Grouping_Of_Both_Activity_And_Subject_For_"
 
 for(i in colnames(meanInfo)[-(1:2)]) {
   if (grepl("\\-(mean|std)", i)) {
-    print(paste("Match", i))
     result[, paste0(preambleMean, i)] <- meanInfo[, i]
   }
 }
 
+write.table(result, "foo.txt", sep = " ")
+write.table(df, "part4.asssignment.txt", sep = " ")
 
 
 

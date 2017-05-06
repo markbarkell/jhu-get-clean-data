@@ -15,5 +15,7 @@ datafile.zip
 # typed.  Someone might not like what they find in my musings.
 .Rhistory
 
-# Just not to store the foo.txt in git -- already storing the data as a CSV.
+# Don't store off the result of the calculation
 foo.txt
+# Don't store off the result of the calculation
+part4.asssignment.txt

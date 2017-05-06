@@ -5,7 +5,8 @@ The text of the assignment may be found at:
 
 https://www.coursera.org/learn/data-cleaning/peer/FIZtT/getting-and-cleaning-data-course-project
 
-## Methodilogy
+
+# Assignment Text Needed to Understand the Assignment Goals
 
 The assignment is to do the following things:
 
@@ -15,58 +16,52 @@ The assignment is to do the following things:
 > 4. Appropriately labels the data set with descriptive variable names. 
 > 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-When doing this write-up, I think I at last found part of my confusion.   The text of the assignment says "Extracts only the measurements on the mean and standard deviation for each measurement."   To me that text meant to calculate the mean and standard deviation.   This is because there is no such thing of a measurement on the mean or standard deviation.   A measurement is upon a single obervation.   As I am writing this README.txt, again, I see that what the professor was asking is to use the reported mean and standard deviation from the original data set about features that have been measured.
+## Methods
 
-So, I've learned alot by doing this branch of the code, but I'll have to make some changes based on the understanding I understand.
+### For 1. "Merges the training and the test sets to create one data set."
 
-I did find that the original data set may have some problems during my research.   I have outlined those in the next section.
+Using R's read.table() functionality many of the files of the orginal input were able to be accessed.    I had found difficultly in reading correctly the data in the X\_train.txt and the X\_test.txt files using read.table().   So, I crafted a set of functions which parsed the data from more basic blocks than read.table() implements.   The basic problem I found with read.table() for the X\_train.txt and X\_test.txt files was the dimensions where reported as much larger than what the subjects\_train.txt and subject\_test.txt reported as observations.   In addition, when using just a seperator of a space, the number of features in the file seemed too many.
 
-## Removal of Data Which Seems to be Coded Incorrectly In Original Data Set.
-During the course of the assignment, I had been rather confused as whether to use the X_train.txt and the X_test.txt because the original data set's features.txt had some duplicated feature names.  I have decided that to remove from the tidier data features whose names could not be determmined because of duplicates.  The duplicated fields are:
-	
-1. fBodyAcc-bandsEnergy()-1,16
-2. fBodyAcc-bandsEnergy()-1,24
-3. fBodyAcc-bandsEnergy()-1,8
-4. fBodyAcc-bandsEnergy()-17,24
-5. fBodyAcc-bandsEnergy()-17,32
-6. fBodyAcc-bandsEnergy()-25,32
-7. fBodyAcc-bandsEnergy()-25,48
-8. fBodyAcc-bandsEnergy()-33,40
-9. fBodyAcc-bandsEnergy()-33,48
-10. fBodyAcc-bandsEnergy()-41,48
-11. fBodyAcc-bandsEnergy()-49,56
-12. fBodyAcc-bandsEnergy()-49,64
-13. fBodyAcc-bandsEnergy()-57,64
-14. fBodyAcc-bandsEnergy()-9,16
-15. fBodyAccJerk-bandsEnergy()-1,16
-16. fBodyAccJerk-bandsEnergy()-1,24
-17. fBodyAccJerk-bandsEnergy()-1,8
-18. fBodyAccJerk-bandsEnergy()-17,24
-19. fBodyAccJerk-bandsEnergy()-17,32
-20. fBodyAccJerk-bandsEnergy()-25,32
-21. fBodyAccJerk-bandsEnergy()-25,48
-22. fBodyAccJerk-bandsEnergy()-33,40
-23. fBodyAccJerk-bandsEnergy()-33,48
-24. fBodyAccJerk-bandsEnergy()-41,48
-25. fBodyAccJerk-bandsEnergy()-49,56
-26. fBodyAccJerk-bandsEnergy()-49,64
-27. fBodyAccJerk-bandsEnergy()-57,64
-28. fBodyAccJerk-bandsEnergy()-9,16
-29. fBodyGyro-bandsEnergy()-1,16
-30. fBodyGyro-bandsEnergy()-1,24
-31. fBodyGyro-bandsEnergy()-1,8
-32. fBodyGyro-bandsEnergy()-17,24
-33. fBodyGyro-bandsEnergy()-17,32
-34. fBodyGyro-bandsEnergy()-25,32
-35. fBodyGyro-bandsEnergy()-25,48
-36. fBodyGyro-bandsEnergy()-33,40
-37. fBodyGyro-bandsEnergy()-33,48
-38. fBodyGyro-bandsEnergy()-41,48
-39. fBodyGyro-bandsEnergy()-49,56
-40. fBodyGyro-bandsEnergy()-49,64
-41. fBodyGyro-bandsEnergy()-57,64
-42. fBodyGyro-bandsEnergy()-9,16
+The special parsing functionality that I wrote is found in the function featuresRead().
 
+### For 2. "Extracts only the measurements on the mean and standard deviation for each measurement."
+
+This step confused me plenty.  The reason is that mean and standard deviation are calcuations based on measurements.   But, after finally realizing the professor was asking for the columns of the original data which were means and standard deviation calculations, I was able to figure to use the grepl() R function to determine which columns to accept into the calculations I do by R.
+
+### For 3. "Uses descriptive activity names to name the activities in the data set"
+
+I read in the activities.txt file and used those names.  The reading of that file is done with R's read.table() function.
+
+### For 4. "Appropriately labels the data set with descriptive variable names"
+
+I have used the orginal data's labels that were kept in many dispered files to combine
+the data and the labels.   The output file part4.asssignment.txt can be generated by running the run\_analysis.R to view this result.  However, this result is really just an intermediate step in the assignment.
+
+### For 5. "From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject."
+
+I used the dplyr package in order to do the grouping of data for selecting subsets to run the arithmetic mean functionality.
+
+#### Assignment Step Description
+
+Throughout this entire assignment, I used the git source code control system.   I certainly had many different items of confusion.  So, someone wanting to understand some of the misunderstandings and improvments I've made, might look at the git history.
+
+## Running the system
+
+I have programmed the run\_analysis.R file.   If one opens a new R environment and runs the run\_analysis.R file by sourcing it.  Then, it will download the data into a file called "datafile.zip" using the current working directory.  Once the zip file is downloaded, the program unzips it into the directory "UCI HAR Dataset".   Then, it does the calcualtions needed by the assignment putting the output to a file named foo.txt.
+
+If one runs the run\_analsysis.R file mutliple times in the same working directory, then, it will not need to download the zip file again.  In addition, if the results of unzipping the zip file are already in the present working directory, then, it won't unzip the file or download the zip file.
+
+The following is how one would source the run\_analysis.R file:
+
+```R
+source("./run_analysis.R")
+```
+
+If there are any problems with the required dplr package not already being installed.  Then, one can install that package by typing the following command into R:
+
+```R
+install.packages("dplyr")
+```
 
 
 ## Original Data Set's License Description:
