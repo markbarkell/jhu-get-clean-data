@@ -1,81 +1,70 @@
+==================================================================
+Human Activity Recognition Using Smartphones Dataset
+Version 1.0
+==================================================================
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Università degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
+==================================================================
 
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
-# Description of meansdperrow.csv
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
-The meansdperrow.csv file contains both the training and testing data's rows.
+For each record it is provided:
+======================================
 
-The first column contains an identifier for the row.  This is an auto-generated identifier.
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+- Triaxial Angular velocity from the gyroscope. 
+- A 561-feature vector with time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
 
-The column with the header Activity contains the name of the activity which the subject person was engaged in.
+The dataset includes the following files:
+=========================================
 
-The column with the header Subject contains the integral identifer to identify the person who is the subject of the experimental instance.
+- 'README.txt'
 
-There are many rows having the same pairing of Activity and Subject because the same person did the same activity multiple times.
+- 'features_info.txt': Shows information about the variables used on the feature vector.
 
-## body\_acc\_x\_train.txt and body\_acc\_x\_test.txt based columns (also y and z direction):
+- 'features.txt': List of all features.
 
-BodyAccXMean column contains the mean of the BodyAccX motion of the instance of experiment.
-BodyAccXSd column contains the mean of the BodyAccX motion of the instance of experiment. 
+- 'activity_labels.txt': Links the class labels with their activity name.
 
-BodyAccYMean column contains the mean of the BodyAccY motion of the instance of experiment.
-BodyAccYSd column contains the mean of the BodyAccY motion of the instance of experiment. 
+- 'train/X_train.txt': Training set.
 
-BodyAccZMean column contains the mean of the BodyAccZ motion of the instance of experiment.
-BodyAccZSd column contains the mean of the BodyAccZ motion of the instance of experiment.
+- 'train/y_train.txt': Training labels.
 
-## body\_gyro\_x\_train.txt and body\_gyro\_x\_train.txt based columns (also y and z direction):
+- 'test/X_test.txt': Test set.
 
-BodyGyroXMean column contains the mean of the BodyGyroX motion of the instance of experiment.
-BodyGyroXSd column contains the mean of the BodyGyroX motion of the instance of experiment. 
+- 'test/y_test.txt': Test labels.
 
-BodyGyroYMean column contains the mean of the BodyGyroY motion of the instance of experiment.
-BodyGyroYSd column contains the mean of the BodyGyroY motion of the instance of experiment. 
+The following files are available for the train and test data. Their descriptions are equivalent. 
 
-BodyGyroZMean column contains the mean of the BodyGyroZ motion of the instance of experiment.
-BodyGyroZSd column contains the mean of the BodyGyroZ motion of the instance of experiment. 
+- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
-## total\_acc\_x\_train.txt and total\_acc\_x\_test.txt Based columns (also y and z direction):
-BodyTotalAccXMean column contains the mean of the BodyTotalAccX motion of the instance of experiment.
-BodyTotalAccXSd column contains the mean of the BodyTotalAccX motion of the instance of experiment. 
+- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
 
-BodyTotalAccYMean column contains the mean of the BodyTotalAccY motion of the instance of experiment.
-BodyTotalAccYSd column contains the mean of the BodyTotalAccY motion of the instance of experiment. 
+- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
 
-BodyTotalAccZMean column contains the mean of the BodyTotalAccZ motion of the instance of experiment.
-BodyTotalAccZSd column contains the mean of the BodyTotalAccZ motion of the instance of experiment.
+- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
+Notes: 
+======
+- Features are normalized and bounded within [-1,1].
+- Each feature vector is a row on the text file.
 
-# Description of meanperactivitysubject.csv
+For more information about this dataset contact: activityrecognition@smartlab.ws
 
-The first column, having no header, is just the identifier integral number for the row.
+License:
+========
+Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
 
-The column with the header Activity contains the name of the activity which the subject person was engaged in.
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
 
-The column with the header Subject contains the integral identifer to identify the person who is the subject of the experimental instances.   Any particular instance has been aggregated by the grouping of Activity and Subject.
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
 
-## body\_acc\_x\_train.txt and body\_acc\_x\_test.txt based columns (also y and z direction):
-
-BodyAccXMean column contains the mean of the BodyAccX motion of the instances of experiment.
- 
-BodyAccYMean column contains the mean of the BodyAccY motion of the instances of experiment.
-
-BodyAccZMean column contains the mean of the BodyAccZ motion of the instances of experiment.
-
-
-## body\_gyro\_x\_train.txt and body\_gyro\_x\_train.txt based columns (also y and z direction):
-
-BodyGyroXMean column contains the mean of the BodyGyroX motion of the instances of experiment.
- 
-BodyGyroYMean column contains the mean of the BodyGyroY motion of the instances of experiment.
-
-BodyGyroZMean column contains the mean of the BodyGyroZ motion of the instances of experiment.
-
-
-## total\_acc\_x\_train.txt and total\_acc\_x\_test.txt Based columns (also y and z direction):
-
-BodyTotalAccXMean column contains the mean of the BodyTotalAccX motion of the instances of experiment.
-
-BodyTotalAccYMean column contains the mean of the BodyTotalAccY motion of the instances of experiment.
- 
-BodyTotalAccZMean column contains the mean of the BodyTotalAccZ motion of the instances of experiment.
-
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
