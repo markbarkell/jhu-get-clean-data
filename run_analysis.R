@@ -128,37 +128,25 @@ for(i in 2:lenX) {
 # The following do not:
 #  *  inputFeatures$V2
 
-lengthInputFeatures <- length(inputFeatures$V2)
-endInputFeatures <- lengthInputFeatures + 3
+
 # While looking in The Internet, I found that my understanding of the group_by was a bit off.  I was attempting to
 # make a string to do the grouping, I had been thinking that the group_by(Activity, Subject) should be implemented
 # to do the right thing, but had not tried it until reading the following URL:
 # http://stackoverflow.com/questions/27592414/r-dplyr-summarize-each-error-cannot-modify-grouping-variable
 meanInfo <- df %>% group_by(Activity,Subject) %>% summarise_each(funs(mean(., na.rm=TRUE)))
-sdInfo <- df %>% group_by(Activity,Subject) %>% summarise_each(funs(sd(., na.rm=TRUE)))
+
 
 result <- data.frame(Activity = meanInfo$Activity, Subject = meanInfo$Subject)
 
-preambleMean <- "Mean_By_The_Grouping_Of_Both_Activity_And_Subject_"
-preambleStandardDeviation <- "Standard_Deviation_By_the_Grouping_Of_Both_Activity_and_Subject_"
+preambleMean <- "Mean_By_The_Grouping_Of_Both_Activity_And_Subject_For_"
 
 for(i in colnames(meanInfo)[-(1:2)]) {
-  result[, paste0(preambleMean, i)] <- meanInfo[, i]
-  result[, paste0(preambleStandardDeviation, i)] <- sdInfo[, i]
+  if (grepl("\\-(mean|std)", i)) {
+    print(paste("Match", i))
+    result[, paste0(preambleMean, i)] <- meanInfo[, i]
+  }
 }
 
 
 
-# The first time I worked upon the assignment, I realized that there was a problem with
-# the source data.  The problem with the source data is that some of the feature names
-# are duplicated.   This makes them unreliable.  It may have implications on the whole of original data set.
-showsDuplicatedFeatureColumns <- inputFeatures %>% group_by(V2) %>% count()
-showsDuplicatedFeatureColumns <- showsDuplicatedFeatureColumns[which(showsDuplicatedFeatureColumns$n > 1),]
-suspectMeanCalculations <- paste0(preambleMean, showsDuplicatedFeatureColumns$V2)
-suspectMeanCalculationsIndecies <- which(colnames(result) %in% suspectMeanCalculations)
-result <- result[, -suspectMeanCalculationsIndecies]
-
-suspectSDCalculations <- paste0(preambleStandardDeviation, showsDuplicatedFeatureColumns$V2)
-suspectSDCalculationsIndecies <- which(colnames(result) %in% suspectSDCalculations)
-result <- result[, -suspectSDCalculationsIndecies]
 
