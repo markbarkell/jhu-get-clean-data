@@ -139,8 +139,26 @@ sdInfo <- df %>% group_by(Activity,Subject) %>% summarise_each(funs(sd(., na.rm=
 
 result <- data.frame(Activity = meanInfo$Activity, Subject = meanInfo$Subject)
 
+preambleMean <- "Mean_By_The_Grouping_Of_Both_Activity_And_Subject_"
+preambleStandardDeviation <- "Standard_Deviation_By_the_Grouping_Of_Both_Activity_and_Subject_"
+
 for(i in colnames(meanInfo)[-(1:2)]) {
-  result[, paste("Mean By The Grouping Of Both Activity and Subject", i)] <- meanInfo[, i]
-  result[, paste("Standard Deviation By the Grouping Of Both Activity and Subject", i)] <- sdInfo[, i]
+  result[, paste0(preambleMean, i)] <- meanInfo[, i]
+  result[, paste0(preambleStandardDeviation, i)] <- sdInfo[, i]
 }
+
+
+
+# The first time I worked upon the assignment, I realized that there was a problem with
+# the source data.  The problem with the source data is that some of the feature names
+# are duplicated.   This makes them unreliable.  It may have implications on the whole of original data set.
+showsDuplicatedFeatureColumns <- inputFeatures %>% group_by(V2) %>% count()
+showsDuplicatedFeatureColumns <- showsDuplicatedFeatureColumns[which(showsDuplicatedFeatureColumns$n > 1),]
+suspectMeanCalculations <- paste0(preambleMean, showsDuplicatedFeatureColumns$V2)
+suspectMeanCalculationsIndecies <- which(colnames(result) %in% suspectMeanCalculations)
+result <- result[, -suspectMeanCalculationsIndecies]
+
+suspectSDCalculations <- paste0(preambleStandardDeviation, showsDuplicatedFeatureColumns$V2)
+suspectSDCalculationsIndecies <- which(colnames(result) %in% suspectSDCalculations)
+result <- result[, -suspectSDCalculationsIndecies]
 
