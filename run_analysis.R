@@ -146,8 +146,8 @@ for(i in colnames(meanInfo)[-(1:2)]) {
   }
 }
 
-write.table(result, "foo.txt", sep = " ")
-write.table(df, "part4.asssignment.txt", sep = " ")
+write.table(result, "foo.txt", sep = " ", row.names = FALSE)
+write.table(df, "part4.asssignment.txt", sep = " ", row.names = FALSE)
 
 
 
