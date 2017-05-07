@@ -2,14 +2,14 @@
 # Human Activity Recognition Using Smartphones Dataset
 Version 1.0 + Changes made by Mark Barkell
 
-==================================================================
+------------------------------------------------------------------
 Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
 Smartlab - Non Linear Complex Systems Laboratory
 DITEN - Università degli Studi di Genova.
 Via Opera Pia 11A, I-16145, Genoa, Italy.
 activityrecognition@smartlab.ws
 www.smartlab.ws
-==================================================================
+------------------------------------------------------------------
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
@@ -57,89 +57,89 @@ The following is the desciption of the features that follow that "Mean By The Gr
 
 ### Listing of fields in the foo.txt output file:
 
-1. "Activity"
+1. **Activity**
     which activity the Subject was participating in.
-2. "Subject"
+2. **Subject**
     an integral identifier for the participant.
-3. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-mean()-X"
-4. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-mean()-Y"
-5. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-mean()-Z"
-6. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-std()-X"
-7. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-std()-Y"
-8. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-std()-Z"
-9. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-mean()-X"
-10. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-mean()-Y"
-11. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-mean()-Z"
-12. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-std()-X"
-13. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-std()-Y"
-14. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-std()-Z"
-15. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-mean()-X"
-16. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-mean()-Y"
-17. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-mean()-Z"
-18. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-std()-X"
-19. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-std()-Y"
-20. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-std()-Z"
-21. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-mean()-X"
-22. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-mean()-Y"
-23. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-mean()-Z"
-24. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-std()-X"
-25. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-std()-Y"
-26. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-std()-Z"
-27. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-mean()-X"
-28. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-mean()-Y"
-29. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-mean()-Z"
-30. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-std()-X"
-31. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-std()-Y"
-32. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-std()-Z"
-33. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccMag-mean()"
-34. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccMag-std()"
-35. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAccMag-mean()"
-36. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAccMag-std()"
-37. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerkMag-mean()"
-38. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerkMag-std()"
-39. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroMag-mean()"
-40. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroMag-std()"
-41. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerkMag-mean()"
-42. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerkMag-std()"
-43. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-mean()-X"
-44. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-mean()-Y"
-45. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-mean()-Z"
-46. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-std()-X"
-47. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-std()-Y"
-48. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-std()-Z"
-49. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-meanFreq()-X"
-50. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-meanFreq()-Y"
-51. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-meanFreq()-Z"
-52. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-mean()-X"
-53. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-mean()-Y"
-54. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-mean()-Z"
-55. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-std()-X"
-56. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-std()-Y"
-57. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-std()-Z"
-58. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-meanFreq()-X"
-59. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-meanFreq()-Y"
-60. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-meanFreq()-Z"
-61. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-mean()-X"
-62. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-mean()-Y"
-63. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-mean()-Z"
-64. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-std()-X"
-65. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-std()-Y"
-66. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-std()-Z"
-67. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-meanFreq()-X"
-68. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-meanFreq()-Y"
-69. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-meanFreq()-Z"
-70. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccMag-mean()"
-71. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccMag-std()"
-72. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccMag-meanFreq()"
-73. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyAccJerkMag-mean()"
-74. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyAccJerkMag-std()"
-75. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyAccJerkMag-meanFreq()"
-76. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroMag-mean()"
-77. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroMag-std()"
-78. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroMag-meanFreq()"
-79. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroJerkMag-mean()"
-80. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroJerkMag-std()"
-81. "Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroJerkMag-meanFreq()"
+3. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-mean()-X**
+4. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-mean()-Y**
+5. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-mean()-Z**
+6. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-std()-X**
+7. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-std()-Y**
+8. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAcc-std()-Z**
+9. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-mean()-X**
+10. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-mean()-Y**
+11. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-mean()-Z**
+12. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-std()-X**
+13. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-std()-Y**
+14. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAcc-std()-Z**
+15. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-mean()-X**
+16. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-mean()-Y**
+17. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-mean()-Z**
+18. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-std()-X**
+19. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-std()-Y**
+20. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerk-std()-Z**
+21. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-mean()-X**
+22. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-mean()-Y**
+23. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-mean()-Z**
+24. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-std()-X**
+25. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-std()-Y**
+26. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyro-std()-Z**
+27. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-mean()-X**
+28. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-mean()-Y**
+29. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-mean()-Z**
+30. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-std()-X**
+31. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-std()-Y**
+32. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerk-std()-Z**
+33. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccMag-mean()**
+34. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccMag-std()**
+35. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAccMag-mean()**
+36. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tGravityAccMag-std()**
+37. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerkMag-mean()**
+38. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyAccJerkMag-std()**
+39. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroMag-mean()**
+40. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroMag-std()**
+41. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerkMag-mean()**
+42. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_tBodyGyroJerkMag-std()**
+43. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-mean()-X**
+44. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-mean()-Y**
+45. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-mean()-Z**
+46. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-std()-X**
+47. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-std()-Y**
+48. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-std()-Z**
+49. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-meanFreq()-X**
+50. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-meanFreq()-Y**
+51. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAcc-meanFreq()-Z**
+52. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-mean()-X**
+53. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-mean()-Y**
+54. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-mean()-Z**
+55. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-std()-X**
+56. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-std()-Y**
+57. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-std()-Z**
+58. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-meanFreq()-X**
+59. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-meanFreq()-Y**
+60. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccJerk-meanFreq()-Z**
+61. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-mean()-X**
+62. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-mean()-Y**
+63. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-mean()-Z**
+64. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-std()-X**
+65. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-std()-Y**
+66. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-std()-Z**
+67. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-meanFreq()-X**
+68. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-meanFreq()-Y**
+69. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyGyro-meanFreq()-Z**
+70. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccMag-mean()**
+71. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccMag-std()**
+72. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyAccMag-meanFreq()**
+73. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyAccJerkMag-mean()**
+74. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyAccJerkMag-std()**
+75. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyAccJerkMag-meanFreq()**
+76. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroMag-mean()**
+77. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroMag-std()**
+78. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroMag-meanFreq()**
+79. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroJerkMag-mean()**
+80. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroJerkMag-std()**
+81. **Mean\_By\_The\_Grouping\_Of\_Both\_Activity\_And\_Subject\_For\_fBodyBodyGyroJerkMag-meanFreq()**
 
 
 ## The dataset includes the following files:
